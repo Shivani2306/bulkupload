@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Employee Upload</title>
+    <script>
+        function addEmployeeRow() {
+            const container = document.getElementById('employee-container');
+            const newRow = `
+                <div class="employee-row">
+                    <label>Name:</label>
+                    <input type="text" name="names" placeholder="Enter name" required>
+                    <label>Profile Image:</label>
+                    <input type="file" name="profile_images" required>
+                    <button type="button" onclick="removeRow(this)">Remove</button>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', newRow);
+        }
+
+        function removeRow(button) {
+            const row = button.parentElement;
+            row.remove();
+        }
+    </script>
+</head>
+<body>
+    <h1>Bulk Employee Upload</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div id="employee-container">
+            <div class="employee-row">
+                <label>Name:</label>
+                <input type="text" name="names" placeholder="Enter name" required>
+                <label>Profile Image:</label>
+                <input type="file" name="profile_images" required>
+            </div>
+        </div>
+        <button type="button" onclick="addEmployeeRow()">Add More</button><br><br>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>
+
+
+
+
