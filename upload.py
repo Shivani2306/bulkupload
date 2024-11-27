@@ -69,13 +69,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
-
-
-
-
 # from flask import Flask, request, render_template, redirect, url_for, flash, send_file
 # from flask_sqlalchemy import SQLAlchemy
 # import io
