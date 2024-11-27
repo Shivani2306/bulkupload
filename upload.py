@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # Use a writable path for the SQLite database
 if os.getenv("RENDER"):
-    db_path = '/tmp/employees.db'  # Use Render's writable /tmp directory
+    db_path = '/tmp/employees.db' 
 else:
     basedir = os.path.abspath(os.path.dirname(__file__))
     db_path = os.path.join(basedir, "employees.db")
