@@ -19,28 +19,6 @@ class Employee(db.Model):
 def index():
     return render_template('upload_form.html')
 
-# Bulk upload route
-# @app.route('/upload', methods=['POST'])
-# def upload():
-#     files = request.files.getlist('profile_images')  # Get all uploaded files
-#     names = request.form.getlist('names')  # Get all names
-
-#     if not files or not names or len(files) != len(names):
-#         flash("Ensure all fields are filled and number of names matches the number of images!", "error")
-#         return redirect(url_for('index'))
-
-#     for name, file in zip(names, files):
-#         if file:
-#             # Read binary data from the file
-#             binary_data = file.read()
-#             # Add to database
-#             employee = Employee(name=name, profile_image=binary_data)
-#             db.session.add(employee)
-
-#     db.session.commit()
-#     flash("Employees added successfully!", "success")
-#     return redirect(url_for('view_employees'))
-
 @app.route('/upload', methods=['POST'])
 def upload():
     files = request.files.getlist('profile_images')  # Get all uploaded files
