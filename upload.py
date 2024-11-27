@@ -1,11 +1,21 @@
 from flask import Flask, request, render_template, redirect, url_for, flash, send_file
 from flask_sqlalchemy import SQLAlchemy
 import io
+import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///employees.db'
+
+# Get the absolute path of the current file
+basedir = os.path.abspath(os.path.dirname(__file__))
+# Set the database URI to use an absolute path
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(basedir, "employees.db")}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "secret_key"
+
+
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///employees.db'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.secret_key = "secret_key"
 
 db = SQLAlchemy(app)
 
